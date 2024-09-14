@@ -1,8 +1,7 @@
-// src/components/Dashboard.js
-
 import React, { useState } from 'react';
-import { Card, Col, Row, Button, Table } from 'react-bootstrap';
+import { Card, Col, Row, Button, Table, Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
 
 // Dữ liệu phòng và thông tin giờ chơi, tiền
 const initialRoomsData = [
@@ -34,7 +33,7 @@ const initialRoomsData = [
     totalMoney: "1.200.000 VNĐ"
   },
   {
-    id: 1,
+    id: 4,
     name: 'Phòng 4',
     totalMachines: 5,
     machines: [true, false, true, true, false], // true: máy đang hoạt động, false: máy trống
@@ -43,7 +42,7 @@ const initialRoomsData = [
     totalMoney: "1.500.000 VNĐ" // Số tiền thu được
   },
   {
-    id: 2,
+    id: 5,
     name: 'Phòng 5',
     totalMachines: 4,
     machines: [false, false, false, false],
@@ -52,7 +51,7 @@ const initialRoomsData = [
     totalMoney: "2.000.000 VNĐ"
   },
   {
-    id: 3,
+    id: 6,
     name: 'Phòng 6',
     totalMachines: 3,
     machines: [true, true, true],
@@ -63,59 +62,84 @@ const initialRoomsData = [
 ];
 
 function Dashboard() {
-  const [roomsData] = useState(initialRoomsData);
+  const [roomsData, setRoomsData] = useState(initialRoomsData); // Dữ liệu phòng
+  const [searchQuery, setSearchQuery] = useState(''); // Từ khóa tìm kiếm
+
+  // Hàm xử lý tìm kiếm
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const filteredRooms = initialRoomsData.filter(room =>
+      room.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setRoomsData(filteredRooms);
+  };
 
   return (
     <div className="content-area">
       <h2>Bảng Điều Khiển</h2>
+
+      {/* Thanh tìm kiếm phòng */}
+      <Form onSubmit={handleSearch} className="mb-3">
+        <InputGroup>
+          <Form.Control
+            type="text"
+            placeholder="Tìm phòng..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <Button variant="dark" type="submit">
+            <FaSearch />
+          </Button>
+        </InputGroup>
+      </Form>
+
       <Row>
-        {roomsData.map((room) => (
-          <Col md={6} lg={4} key={room.id}>
-            <Card className="mb-4">
-              <Card.Header as="h5">
-                {room.name} {room.isClosed && "(Đã đóng)"}
-              </Card.Header>
-              <Card.Body>
-                {/* Thông tin về giờ chơi và số tiền */}
-                <p><strong>Giờ chơi:</strong> {room.playTime}</p>
-                <p><strong>Số tiền thu được:</strong> {room.totalMoney}</p>
+        {roomsData.length > 0 ? (
+          roomsData.map((room) => (
+            <Col md={6} lg={4} key={room.id}>
+              <Card className="mb-4">
+                <Card.Header as="h5">
+                  {room.name} {room.isClosed && "(Đã đóng)"}
+                </Card.Header>
+                <Card.Body>
+                  {/* Thông tin về giờ chơi và số tiền */}
+                  <p><strong>Giờ chơi:</strong> {room.playTime}</p>
+                  <p><strong>Số tiền thu được:</strong> {room.totalMoney}</p>
 
-                {/* Bảng trạng thái của các máy trong phòng */}
-                <Table bordered>
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Trạng Thái Máy</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {room.machines.map((machine, index) => (
-                      <tr key={index}>
-                        <td>Máy {index + 1}</td>
-                        <td>{machine ? "Đang hoạt động" : "Trống"}</td>
+                  {/* Bảng trạng thái của các máy trong phòng */}
+                  <Table bordered>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Trạng Thái Máy</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                    </thead>
+                    <tbody>
+                      {room.machines.map((machine, index) => (
+                        <tr key={index}>
+                          <td>Máy {index + 1}</td>
+                          <td>{machine ? "Đang hoạt động" : "Trống"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
 
-                {/* Nút xem chi tiết phòng, điều hướng đến trang RoomSummary */}
-                <Link to={`/rooms/summary/${room.id}`}>
-                  <Button variant="info" className="mt-3">Xem Chi Tiết</Button>
-                </Link>
+                  {/* Nút xem chi tiết phòng, điều hướng đến trang RoomSummary */}
+                  <Link to={`/rooms/summary/${room.id}`}>
+                    <Button variant="info" className="mt-3">Xem Chi Tiết</Button>
+                  </Link>
 
-                {/* Nút đóng phòng */}
-                {!room.isClosed && (
-                  <Button
-                    variant="danger"
-                    className="mt-3"
-                  >
-                    Đóng Phòng
-                  </Button>
-                )}
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+                  {/* Nút đóng phòng */}
+                  {!room.isClosed && (
+                    <Button variant="danger" className="mt-3">Đóng Phòng</Button>
+                  )}
+                </Card.Body>
+              </Card>
+            </Col>
+          ))
+        ) : (
+          <p>Không có phòng nào khớp với từ khóa tìm kiếm.</p>
+        )}
       </Row>
     </div>
   );

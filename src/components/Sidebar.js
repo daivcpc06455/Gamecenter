@@ -1,7 +1,5 @@
-// src/components/Sidebar.js
-
 import React from 'react';
-import { Nav, Accordion, Card, Dropdown } from 'react-bootstrap';
+import { Nav, Accordion, Dropdown } from 'react-bootstrap'; // Xóa 'Card' vì không sử dụng
 import { Link } from 'react-router-dom';
 import { FaTachometerAlt, FaCog, FaWrench, FaDesktop, FaGamepad } from 'react-icons/fa';
 
