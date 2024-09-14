@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Dashboard from './components/Dashboard';
-import Rooms from './components/Rooms';
-import RoomDetail from './components/RoomDetail';
-import RoomSummary from './components/RoomSummary';
-import Services from './components/Services';
-import Settings from './components/Settings';
-import Revenue from './components/revenue';
-import User from './components/user';
+import Header from './components/Admin/Header';
+import Sidebar from './components/Admin/Sidebar';
+import Dashboard from './components/Admin/Dashboard';
+import Rooms from './components/Admin/Rooms';
+import RoomDetail from './components/Admin/RoomDetail';
+import RoomSummary from './components/Admin/RoomSummary';
+import Services from './components/Admin/Services';
+import Settings from './components/Admin/Settings';
+import Revenue from './components/Admin/Revenue';
+import User from './components/Admin/User';
 
 function App() {
   return (
@@ -34,8 +34,8 @@ function App() {
               <Route path="/rooms/summary/:roomId" element={<RoomSummary />} />
               <Route path="/services" element={<Services />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="/revenue" element={<Revenue />} />
-              <Route path="/user" element={<User />} />
+              <Route path="/Revenue" element={<Revenue />} />
+              <Route path="/User" element={<User />} />
             </Routes>
           </div>
         </div>
