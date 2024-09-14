@@ -10,6 +10,8 @@ import RoomDetail from './components/RoomDetail';
 import RoomSummary from './components/RoomSummary';
 import Services from './components/Services';
 import Settings from './components/Settings';
+import revenue from './components/revenue';
+import user from './components/user';
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
               <Route path="/rooms/summary/:roomId" element={<RoomSummary />} /> {/* Route cho RoomSummary */}
               <Route path="/services" element={<Services />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="./revenue" element={<revenue />} /> 
+              <Route path="./user" element={<user />} /> 
+
             </Routes>
           </div>
         </div>
