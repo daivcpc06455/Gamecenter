@@ -1,6 +1,7 @@
 import React from 'react';
 
-function revenue() {
+
+function Revenue() {
   return (
     <div>
       <h1>Thống Kê Doanh Thu</h1>
@@ -9,4 +10,4 @@ function revenue() {
   );
 }
 
-export default revenue;
+export default Revenue;
