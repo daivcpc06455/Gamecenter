@@ -34,9 +34,8 @@ function App() {
               <Route path="/rooms/summary/:roomId" element={<RoomSummary />} />
               <Route path="/services" element={<Services />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="./revenue" element={<revenue />} /> 
-              <Route path="./user" element={<user />} /> 
-
+              <Route path="/revenue" element={<revenue />} />
+              <Route path="/user" element={<user />} />
             </Routes>
           </div>
         </div>

@@ -76,7 +76,7 @@ function Sidebar() {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/revenue" className="nav-link">
+              <Nav.Link as={Link} to="/Revenue" className="nav-link">
                 Doanh sách thống kê
               </Nav.Link>
             </Nav>
@@ -90,7 +90,7 @@ function Sidebar() {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/users" className="nav-link">
+              <Nav.Link as={Link} to="/User" className="nav-link">
                 Doanh sách khách hàng
               </Nav.Link>
             </Nav>
