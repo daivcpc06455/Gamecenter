@@ -68,8 +68,36 @@ function Sidebar() {
             </Nav>
           </Accordion.Body>
         </Accordion.Item>
-      </Accordion>
 
+        {/* Mục Thống Kê */}
+        <Accordion.Item eventKey="4">
+          <Accordion.Header>
+            <FaCog className="me-2" /> Thống Kê Doanh Thu
+          </Accordion.Header>
+          <Accordion.Body>
+            <Nav className="flex-column">
+              <Nav.Link as={Link} to="/revenue" className="nav-link">
+                Doanh sách thống kê
+              </Nav.Link>
+            </Nav>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        {/* Mục Thống Kê */}
+        <Accordion.Item eventKey="5">
+          <Accordion.Header>
+            <FaCog className="me-2" /> Quản lý khách hàng
+          </Accordion.Header>
+          <Accordion.Body>
+            <Nav className="flex-column">
+              <Nav.Link as={Link} to="/users" className="nav-link">
+                Doanh sách khách hàng
+              </Nav.Link>
+            </Nav>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+    
       {/* Dropdown Menu Ví Dụ */}
       <Dropdown className="mt-4">
         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
