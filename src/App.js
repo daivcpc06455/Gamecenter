@@ -1,5 +1,3 @@
-// src/App.js
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -22,10 +20,16 @@ function App() {
           </div>
           <div className="col-md-9">
             <Routes>
+              {/* Đường dẫn gốc trỏ tới Dashboard */}
               <Route path="/" element={<Dashboard />} />
+
+              {/* Đường dẫn /admin sẽ trỏ đến Dashboard (trang quản lý phòng net) */}
+              <Route path="/admin" element={<Dashboard />} />
+
+              {/* Các đường dẫn khác */}
               <Route path="/rooms" element={<Rooms />} />
               <Route path="/rooms/:roomId" element={<RoomDetail />} />
-              <Route path="/rooms/summary/:roomId" element={<RoomSummary />} /> {/* Route cho RoomSummary */}
+              <Route path="/rooms/summary/:roomId" element={<RoomSummary />} />
               <Route path="/services" element={<Services />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>
