@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Revenue() {
+function revenue() {
   return (
     <div>
       <h1>Thống Kê Doanh Thu</h1>
@@ -10,4 +10,4 @@ function Revenue() {
   );
 }
 
-export default Revenue;
+export default revenue;
