@@ -1,28 +1,30 @@
 import React from 'react';
-import './components/Client/Css/Styles1.css'; 
+import './components/Client/Routes/Styles1.css';
+
+
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Import các thành phần của Admin
-import Header from './components/Admin/Header';
-import Sidebar from './components/Admin/Sidebar';
-import Dashboard from './components/Admin/Dashboard';
-import Rooms from './components/Admin/Rooms';
-import RoomDetail from './components/Admin/RoomDetail';
-import RoomSummary from './components/Admin/RoomSummary';
-import Services from './components/Admin/Services';
-import Settings from './components/Admin/Settings';
-import Revenue from './components/Admin/Revenue';
-import User from './components/Admin/User';
-import Login from './components/Admin/Login'; // Trang đăng nhập
-import Register from './components/Admin/Register'; // Trang đăng ký
-import EditProfile from './components/Admin/EditProfile'; // Trang chỉnh sửa thông tin
+import Header from './components/Admin/Routes/Header';
+import Sidebar from './components/Admin/Routes/Sidebar';
+import Dashboard from './components/Admin/Routes/Dashboard';
+import Rooms from './components/Admin/Routes/Rooms';
+import RoomDetail from './components/Admin/Routes/RoomDetail';
+import RoomSummary from './components/Admin/Routes/RoomSummary';
+import Services from './components/Admin/Routes/Services';
+import Settings from './components/Admin/Routes/Settings';
+import Revenue from './components/Admin/Routes/Revenue';
+import User from './components/Admin/Routes/User';
+import Login from './components/Admin/Routes/Login'; // Trang đăng nhập
+import Register from './components/Admin/Routes/Register'; // Trang đăng ký
+import EditProfile from './components/Admin/Routes/EditProfile'; // Trang chỉnh sửa thông tin
 
 // Import các thành phần của Client
-import ClientHeader from './components/Client/Header';
-import ClientSidebar from './components/Client/Sidebar';
-import ClientDashboard from './components/Client/ClientPage';
-import ClientProductList from './components/Client/ProductList';
-import ClientFeaturedProducts from './components/Client/FeaturedProducts';
+import ClientHeader from './components/Client/Routes/Header';
+import ClientSidebar from './components/Client/Routes/Sidebar';
+import ClientDashboard from './components/Client/Routes/ClientPage';
+import ClientProductList from './components/Client/Routes/ProductList';
+import ClientFeaturedProducts from './components/Client/Routes/FeaturedProducts';
 
 // Layout cho Admin
 function AdminLayout() {
