@@ -37,18 +37,20 @@ function RoomDetail() {
   const [room, setRoom] = useState(roomsData[roomIndex]);
   const [isEditing, setIsEditing] = useState(false);
 
-  if (!room) {
-    return <div>Phòng không tồn tại!</div>;
+  // Điều hướng nếu không tìm thấy phòng
+  if (roomIndex === -1) {
+    navigate('/admin/rooms');
+    return null;
   }
 
   const handleSave = () => {
-    roomsData[roomIndex] = room;
-    setIsEditing(false);
+    roomsData[roomIndex] = room;  // Cập nhật lại roomsData
+    setIsEditing(false);  // Tắt chế độ chỉnh sửa
   };
 
   const handleDelete = () => {
     roomsData = roomsData.filter((r) => r.id !== room.id);
-    navigate('/');
+    navigate('/admin/rooms');  // Điều hướng về trang danh sách phòng
   };
 
   const handleInputChange = (e) => {
@@ -76,13 +78,20 @@ function RoomDetail() {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Số Máy Hoạt Động (Nhập giá trị 'true' hoặc 'false')</Form.Label>
-            <Form.Control
-              type="text"
-              name="machines"
-              value={room.machines.map((machine) => (machine ? 'true' : 'false')).join(',')}
-              onChange={handleInputChange}
-            />
+            <Form.Label>Số Máy Hoạt Động</Form.Label>
+            {room.machines.map((machine, index) => (
+              <Form.Check
+                key={index}
+                type="checkbox"
+                label={`Máy ${index + 1}`}
+                checked={machine}
+                onChange={(e) => {
+                  const updatedMachines = [...room.machines];
+                  updatedMachines[index] = e.target.checked;
+                  setRoom({ ...room, machines: updatedMachines });
+                }}
+              />
+            ))}
           </Form.Group>
 
           <Form.Group>
@@ -128,7 +137,7 @@ function RoomDetail() {
         </>
       )}
 
-      <Link to="/">
+      <Link to="/admin/rooms">
         <Button variant="secondary" className="mt-3">Quay Lại</Button>
       </Link>
     </div>
