@@ -6,7 +6,6 @@ import Banner from './Banner';
 import ProductList from './ProductList';
 import FeaturedProducts from './FeaturedProducts';
 
-
 function ClientPage() {
   return (
     <div className="client-page">
@@ -14,11 +13,11 @@ function ClientPage() {
       <div className="main-content">
         <Sidebar />
         <div className="content">
-          <Banner />
+          <Banner /> {/* Đảm bảo Banner đã được export đúng cách */}
           <h2>Sản phẩm mới</h2>
-          <ProductList />
+          <ProductList /> {/* Đảm bảo ProductList đã được export đúng cách */}
           <h2>Sản phẩm nổi bật</h2>
-          <FeaturedProducts />
+          <FeaturedProducts /> {/* Đảm bảo FeaturedProducts đã được export đúng cách */}
         </div>
       </div>
     </div>
