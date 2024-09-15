@@ -53,7 +53,7 @@ const CustomerManager = () => {
 
   return (
     <div className="customer-manager-container">
-      <h1>Quản lý khách hàng</h1>
+      <h1>Quản lý tài khoản khách hàng</h1>
       
       {/* Nút để hiện form thêm khách hàng */}
       {!showForm && (
