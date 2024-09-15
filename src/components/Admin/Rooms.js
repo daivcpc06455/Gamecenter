@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Form, Button, InputGroup } from 'react-bootstrap';
+import { Table, Form, InputGroup } from 'react-bootstrap'; // Xóa Button nếu không cần
 
 const roomData = [
   { id: 1, name: 'Phòng 1', computers: 5, hours: '8 AM - 10 PM' },
@@ -18,17 +18,20 @@ function Rooms() {
   const [searchTerm, setSearchTerm] = useState(''); // State cho thanh tìm kiếm
   const [filteredRooms, setFilteredRooms] = useState(roomData); // State cho danh sách phòng sau khi lọc
 
-  // Hàm xử lý tìm kiếm theo số phòng
+  // Hàm xử lý tìm kiếm theo số phòng và tên phòng
   const handleSearch = (e) => {
-    const keyword = e.target.value;
+    const keyword = e.target.value.toLowerCase(); // Chuyển đổi sang chữ thường để tìm kiếm không phân biệt chữ hoa
     setSearchTerm(keyword);
 
     if (keyword === '') {
       setFilteredRooms(roomData); // Nếu thanh tìm kiếm trống, hiển thị toàn bộ danh sách
     } else {
-      // Lọc danh sách phòng dựa trên số phòng (id)
-      const filtered = roomData.filter((room) =>
-        room.id.toString().includes(keyword)
+      // Lọc danh sách phòng dựa trên số phòng (id), tên phòng hoặc giờ hoạt động
+      const filtered = roomData.filter(
+        (room) =>
+          room.id.toString().includes(keyword) ||
+          room.name.toLowerCase().includes(keyword) ||
+          room.hours.toLowerCase().includes(keyword) // Thêm lọc theo giờ hoạt động
       );
       setFilteredRooms(filtered);
     }
@@ -43,14 +46,11 @@ function Rooms() {
         <InputGroup>
           <Form.Control
             type="text"
-            placeholder="Tìm kiếm phòng..."
+            placeholder="Tìm kiếm phòng theo số, tên, hoặc giờ hoạt động..."
             value={searchTerm}
             onChange={handleSearch}
             className="border-primary shadow-sm"
           />
-          <Button variant="primary" className="shadow-sm">
-            Tìm kiếm
-          </Button>
         </InputGroup>
       </Form>
 
@@ -66,19 +66,27 @@ function Rooms() {
           </tr>
         </thead>
         <tbody>
-          {filteredRooms.map((room, index) => (
-            <tr key={room.id}>
-              <td>{index + 1}</td>
-              <td>{room.name}</td>
-              <td>{room.computers}</td>
-              <td>{room.hours}</td>
-              <td>
-                <Link to={`/rooms/${room.id}`} className="btn btn-info">
-                  Xem Chi Tiết
-                </Link>
+          {filteredRooms.length > 0 ? (
+            filteredRooms.map((room, index) => (
+              <tr key={room.id}>
+                <td>{index + 1}</td>
+                <td>{room.name}</td>
+                <td>{room.computers}</td>
+                <td>{room.hours}</td>
+                <td>
+                  <Link to={`/rooms/${room.id}`} className="btn btn-info">
+                    Xem Chi Tiết
+                  </Link>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="5" className="text-center">
+                Không tìm thấy phòng nào
               </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </Table>
     </div>
