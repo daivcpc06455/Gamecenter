@@ -92,7 +92,12 @@ function Sidebar() {
           <Accordion.Body>
             <Nav className="flex-column">
               <Nav.Link as={Link} to="/User" className="nav-link">
-                Doanh sách khách hàng
+                Thông tin tài khoản
+              </Nav.Link>
+            </Nav>
+            <Nav className="flex-column">
+              <Nav.Link as={Link} to="/UsersTable" className="nav-link">
+                Danh sách khách hàng
               </Nav.Link>
             </Nav>
           </Accordion.Body>
