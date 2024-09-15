@@ -1,0 +1,50 @@
+.customer-manager-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.customer-table th, .customer-table td {
+  border: 1px solid #ea0000;
+  padding: 12px;
+  text-align: center;
+}
+
+.customer-table th {
+  background-color: #0071fa;
+  font-weight: bold;
+}
+
+.customer-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.customer-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Trạng thái hoạt động */
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: red;
+  font-weight: bold;
+}

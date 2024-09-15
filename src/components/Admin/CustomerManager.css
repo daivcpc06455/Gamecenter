@@ -2,14 +2,14 @@
   width: 80%;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #000000;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: #ff0000;
   margin-bottom: 20px;
   font-family: Arial, sans-serif;
 }
@@ -18,7 +18,7 @@ h1 {
   width: 30%;
   padding: 10px;
   margin: 10px 10px 10px 0;
-  border: 1px solid #ddd;
+  border: 1px solid #00ff26;
   border-radius: 5px;
 }
 
