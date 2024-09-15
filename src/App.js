@@ -13,6 +13,7 @@ import User from './components/Admin/User';
 import Login from './components/Admin/Login'; // Trang đăng nhập
 import Register from './components/Admin/Register'; // Trang đăng ký
 import EditProfile from './components/Admin/EditProfile'; // Trang chỉnh sửa thông tin
+import UsersTable from './components/Admin/UsersTable';
 
 function AdminLayout() {
   return (
@@ -34,6 +35,7 @@ function AdminLayout() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/Revenue" element={<Revenue />} />
               <Route path="/User" element={<User />} />
+              <Route path="/UsersTable" element={<UsersTable />} />
               <Route path="/edit-profile" element={<EditProfile />} /> {/* Thêm route cho chỉnh sửa thông tin */}
             </Routes>
           </div>
