@@ -10,10 +10,13 @@ import Services from './components/Admin/Services';
 import Settings from './components/Admin/Settings';
 import Revenue from './components/Admin/Revenue';
 import User from './components/Admin/User';
+import Login from './components/Admin/Login'; // Trang đăng nhập
+import Register from './components/Admin/Register'; // Trang đăng ký
+import EditProfile from './components/Admin/EditProfile'; // Trang chỉnh sửa thông tin
 
-function App() {
+function AdminLayout() {
   return (
-    <Router>
+    <>
       <Header />
       <div className="container-fluid">
         <div className="row">
@@ -22,13 +25,8 @@ function App() {
           </div>
           <div className="col-md-9">
             <Routes>
-              {/* Đường dẫn gốc trỏ tới Dashboard */}
               <Route path="/" element={<Dashboard />} />
-
-              {/* Đường dẫn /admin sẽ trỏ đến Dashboard (trang quản lý phòng net) */}
               <Route path="/admin" element={<Dashboard />} />
-
-              {/* Các đường dẫn khác */}
               <Route path="/rooms" element={<Rooms />} />
               <Route path="/rooms/:roomId" element={<RoomDetail />} />
               <Route path="/rooms/summary/:roomId" element={<RoomSummary />} />
@@ -36,10 +34,23 @@ function App() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/Revenue" element={<Revenue />} />
               <Route path="/User" element={<User />} />
+              <Route path="/edit-profile" element={<EditProfile />} /> {/* Thêm route cho chỉnh sửa thông tin */}
             </Routes>
           </div>
         </div>
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/*" element={<AdminLayout />} />
+      </Routes>
     </Router>
   );
 }
