@@ -32,8 +32,8 @@ function AdminLayout() {
               <Route path="/rooms/summary/:roomId" element={<RoomSummary />} />
               <Route path="/services" element={<Services />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="/revenue" element={<Revenue />} />
-              <Route path="/user" element={<User />} />
+              <Route path="/Revenue" element={<Revenue />} />
+              <Route path="/User" element={<User />} />
               <Route path="/edit-profile" element={<EditProfile />} /> {/* Thêm route cho chỉnh sửa thông tin */}
             </Routes>
           </div>
