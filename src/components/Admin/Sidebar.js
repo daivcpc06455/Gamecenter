@@ -2,10 +2,11 @@ import React from 'react';
 import { Nav, Accordion, Dropdown } from 'react-bootstrap'; // Xóa 'Card' vì không sử dụng
 import { Link } from 'react-router-dom';
 import { FaTachometerAlt, FaCog, FaWrench, FaDesktop, FaGamepad } from 'react-icons/fa';
+import './Sidebar.css'; // Nhập file CSS
 
 function Sidebar() {
   return (
-    <div className="sidebar bg-light vh-100 p-3">
+    <div className="sidebar">
       <h4 className="text-center">Quản Lý Phòng Net</h4>
       <hr />
 
@@ -69,7 +70,7 @@ function Sidebar() {
           </Accordion.Body>
         </Accordion.Item>
 
-        {/* Mục Thống Kê */}
+        {/* Mục Thống Kê Doanh Thu */}
         <Accordion.Item eventKey="4">
           <Accordion.Header>
             <FaCog className="me-2" /> Thống Kê Doanh Thu
@@ -83,7 +84,7 @@ function Sidebar() {
           </Accordion.Body>
         </Accordion.Item>
 
-        {/* Mục Thống Kê */}
+        {/* Mục Quản lý khách hàng */}
         <Accordion.Item eventKey="5">
           <Accordion.Header>
             <FaCog className="me-2" /> Quản lý khách hàng
@@ -97,7 +98,7 @@ function Sidebar() {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-    
+
       {/* Dropdown Menu Ví Dụ */}
       <Dropdown className="mt-4">
         <Dropdown.Toggle variant="secondary" id="dropdown-basic">

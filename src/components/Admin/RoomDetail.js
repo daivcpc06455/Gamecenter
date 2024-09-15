@@ -1,15 +1,14 @@
-// src/components/RoomDetail.js
-
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Button, Table, Form } from 'react-bootstrap';
+import './RoomDetail.css';  // Nhập file CSS
 
 let roomsData = [
   {
     id: 1,
     name: 'Phòng 1',
     totalMachines: 5,
-    machines: [true, false, true, true, false], // true: máy đang hoạt động, false: máy trống
+    machines: [true, false, true, true, false],
     isClosed: false,
     description: 'Phòng 1 là phòng chơi game với cấu hình mạnh.'
   },
@@ -32,8 +31,8 @@ let roomsData = [
 ];
 
 function RoomDetail() {
-  const { roomId } = useParams(); // Lấy roomId từ URL
-  const navigate = useNavigate();  // Sử dụng để điều hướng sau khi xóa phòng
+  const { roomId } = useParams();
+  const navigate = useNavigate();
   const roomIndex = roomsData.findIndex((r) => r.id === parseInt(roomId));
   const [room, setRoom] = useState(roomsData[roomIndex]);
   const [isEditing, setIsEditing] = useState(false);
@@ -42,19 +41,16 @@ function RoomDetail() {
     return <div>Phòng không tồn tại!</div>;
   }
 
-  // Hàm xử lý khi nhấn nút "Lưu" sau khi chỉnh sửa
   const handleSave = () => {
-    roomsData[roomIndex] = room; // Cập nhật dữ liệu phòng trong danh sách
+    roomsData[roomIndex] = room;
     setIsEditing(false);
   };
 
-  // Hàm xử lý khi nhấn nút "Xóa Phòng"
   const handleDelete = () => {
-    roomsData = roomsData.filter((r) => r.id !== room.id); // Xóa phòng khỏi danh sách
-    navigate('/'); // Điều hướng về trang Dashboard sau khi xóa
+    roomsData = roomsData.filter((r) => r.id !== room.id);
+    navigate('/');
   };
 
-  // Hàm cập nhật dữ liệu khi người dùng chỉnh sửa
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setRoom({
