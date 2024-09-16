@@ -1,0 +1,50 @@
+.client-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    background-color: #4CAF50;
+    padding: 10px;
+    color: white;
+  }
+  
+  .header h1 {
+    display: inline;
+  }
+  
+  .navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .sidebar {
+    width: 20%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    float: left;
+  }
+  
+  .main-content {
+    display: flex;
+  }
+  
+  .content {
+    width: 80%;
+    padding: 20px;
+  }
+  
+  .product-list, .featured-products {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .product-item {
+    text-align: center;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: auto;
+  }
+  
