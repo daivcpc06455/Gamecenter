@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Button, Table, Form } from 'react-bootstrap';
-import './RoomDetail.css';  // Nhập file CSS
+import './RoomDetail.css';  // Đảm bảo file CSS đã tồn tại
 
 let roomsData = [
   {
@@ -34,12 +34,19 @@ function RoomDetail() {
   const { roomId } = useParams();
   const navigate = useNavigate();
   const roomIndex = roomsData.findIndex((r) => r.id === parseInt(roomId));
+
   const [room, setRoom] = useState(roomsData[roomIndex]);
   const [isEditing, setIsEditing] = useState(false);
 
-  // Điều hướng nếu không tìm thấy phòng
+  // Điều hướng nếu không tìm thấy phòng sau khi component render
+  useEffect(() => {
+    if (roomIndex === -1) {
+      navigate('/admin/rooms');
+    }
+  }, [roomIndex, navigate]);
+
+  // Nếu không tìm thấy phòng, không hiển thị giao diện
   if (roomIndex === -1) {
-    navigate('/admin/rooms');
     return null;
   }
 
@@ -57,7 +64,7 @@ function RoomDetail() {
     const { name, value } = e.target;
     setRoom({
       ...room,
-      [name]: name === 'machines' ? value.split(',').map((v) => v === 'true') : value
+      [name]: value
     });
   };
 
