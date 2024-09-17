@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import layout cho Admin và Client
 import AdminLayout from './components/Admin/Adminlayout';
-import ClientLayout from './components/Client/Clientlayout'; 
+import ClientLayout from './components/CLient/Clientlayout'; 
 
 
 ;
