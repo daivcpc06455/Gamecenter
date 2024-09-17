@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Form, InputGroup } from 'react-bootstrap'; // Xóa Button nếu không cần
+import { Table, Form, InputGroup } from 'react-bootstrap';
 
 const roomData = [
   { id: 1, name: 'Phòng 1', computers: 5, hours: '8 AM - 10 PM' },
@@ -74,7 +74,8 @@ function Rooms() {
                 <td>{room.computers}</td>
                 <td>{room.hours}</td>
                 <td>
-                  <Link to={`/rooms/${room.id}`} className="btn btn-info">
+                  {/* Liên kết đến chi tiết phòng với đường dẫn /admin */}
+                  <Link to={`/admin/rooms/${room.id}`} className="btn btn-info">
                     Xem Chi Tiết
                   </Link>
                 </td>
