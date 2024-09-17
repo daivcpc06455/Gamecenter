@@ -14,6 +14,7 @@ const CustomerTable = () => {
   // Khi trang được tải, dữ liệu khách hàng sẽ được thêm vào
   useEffect(() => {
     setCustomers(initialCustomers);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
