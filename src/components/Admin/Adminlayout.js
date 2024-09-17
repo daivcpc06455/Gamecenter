@@ -13,6 +13,8 @@ import Settings from './Settings';
 import Revenue from './Revenue';
 import User from './User';
 import EditProfile from './EditProfile'; // Trang chỉnh sửa thông tin
+import UsersTable from './UsersTable';
+
 
 function AdminLayout() {
   return (
@@ -27,14 +29,14 @@ function AdminLayout() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/admin" element={<Dashboard />} />
-              <Route path="/rooms" element={<Rooms />} />
-              <Route path="/rooms/:roomId" element={<RoomDetail />} />
+              <Route path="/admin/rooms" element={<Rooms />} />
+              <Route path="/admin/rooms/:roomId" element={<RoomDetail />} />
               <Route path="/rooms/summary/:roomId" element={<RoomSummary />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/revenue" element={<Revenue />} />
-              <Route path="/user" element={<User />} />
-              <Route path="/edit-profile" element={<EditProfile />} />
+              <Route path="/admin/services" element={<Services />} />
+              <Route path="/admin/settings" element={<Settings />} />
+              <Route path="/admin/revenue" element={<Revenue />} />
+              <Route path="/admin/user" element={<User />} />
+              <Route path="/admin/users-table" element={<UsersTable />} />
             </Routes>
           </div>
         </div>
