@@ -1,8 +1,8 @@
 import React from 'react';
-import { Nav, Accordion, Dropdown } from 'react-bootstrap'; // Xóa 'Card' vì không sử dụng
+import { Nav, Accordion, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaTachometerAlt, FaCog, FaWrench, FaDesktop, FaGamepad } from 'react-icons/fa';
-import './Sidebar.css'; // Nhập file CSS
+import './Sidebar.css';
 
 function Sidebar() {
   return (
@@ -18,7 +18,7 @@ function Sidebar() {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/" className="nav-link">
+              <Nav.Link as={Link} to="/admin" className="nav-link">
                 Tổng Quan
               </Nav.Link>
             </Nav>
@@ -32,7 +32,7 @@ function Sidebar() {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/rooms" className="nav-link">
+              <Nav.Link as={Link} to="/admin/rooms" className="nav-link">
                 Danh Sách Phòng
               </Nav.Link>
             </Nav>
@@ -46,10 +46,10 @@ function Sidebar() {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/services" className="nav-link">
+              <Nav.Link as={Link} to="/admin/services" className="nav-link">
                 Danh Sách Dịch Vụ
               </Nav.Link>
-              <Nav.Link as={Link} to="/services/new" className="nav-link">
+              <Nav.Link as={Link} to="/admin/services/new" className="nav-link">
                 Thêm Dịch Vụ Mới
               </Nav.Link>
             </Nav>
@@ -63,7 +63,7 @@ function Sidebar() {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/settings" className="nav-link">
+              <Nav.Link as={Link} to="/admin/settings" className="nav-link">
                 Cấu Hình Hệ Thống
               </Nav.Link>
             </Nav>
@@ -77,8 +77,8 @@ function Sidebar() {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/Revenue" className="nav-link">
-                Doanh sách thống kê
+              <Nav.Link as={Link} to="/admin/revenue" className="nav-link">
+                Doanh Số Thống Kê
               </Nav.Link>
             </Nav>
           </Accordion.Body>
@@ -87,17 +87,15 @@ function Sidebar() {
         {/* Mục Quản lý khách hàng */}
         <Accordion.Item eventKey="5">
           <Accordion.Header>
-            <FaCog className="me-2" /> Quản lý khách hàng
+            <FaCog className="me-2" /> Quản Lý Khách Hàng
           </Accordion.Header>
           <Accordion.Body>
             <Nav className="flex-column">
-              <Nav.Link as={Link} to="/User" className="nav-link">
-                Thông tin tài khoản
+              <Nav.Link as={Link} to="/admin/user" className="nav-link">
+                Thông Tin Tài Khoản
               </Nav.Link>
-            </Nav>
-            <Nav className="flex-column">
-              <Nav.Link as={Link} to="/UsersTable" className="nav-link">
-                Danh sách khách hàng
+              <Nav.Link as={Link} to="/admin/users-table" className="nav-link">
+                Danh Sách Khách Hàng
               </Nav.Link>
             </Nav>
           </Accordion.Body>
@@ -111,9 +109,9 @@ function Sidebar() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item as={Link} to="/option1">Tùy Chọn 1</Dropdown.Item>
-          <Dropdown.Item as={Link} to="/option2">Tùy Chọn 2</Dropdown.Item>
-          <Dropdown.Item as={Link} to="/option3">Tùy Chọn 3</Dropdown.Item>
+          <Dropdown.Item as={Link} to="/admin/option1">Tùy Chọn 1</Dropdown.Item>
+          <Dropdown.Item as={Link} to="/admin/option2">Tùy Chọn 2</Dropdown.Item>
+          <Dropdown.Item as={Link} to="/admin/option3">Tùy Chọn 3</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>
